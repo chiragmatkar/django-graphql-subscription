@@ -1,0 +1,24 @@
+type Book {
+    id: ID!
+    title: String!
+    description: String!
+}
+
+type DeletePayload {
+    message: String!
+}
+
+type Query {
+    books: [Book!]!
+}
+
+type Mutation {
+    createBook(title: String! , description: String!): Book!
+    updateBook(id: ID! , title: String! , description: String!): Book!
+    deleteBook(id: ID!): DeletePayload!
+}
+
+type Subscription {
+    bookCreated: Book!
+    bookUpdated: Book!
+}
